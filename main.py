@@ -75,9 +75,6 @@ def convert_rom_bytes_to_indexed_colors(bytes, logger):
 
 
 def convert_indexed_colors_to_rgba32_bytes(indexed_colors, palette, has_alpha, logger):
-    """
-    Palettes are specified in BGR15.
-    """
     bytes = []
 
     for indexed_color in indexed_colors:

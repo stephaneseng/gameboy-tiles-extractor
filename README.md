@@ -17,7 +17,7 @@ The main goal of this tool is to programmatically extract tiles data contained i
 ## Usage
 
 ```bash
-(venv) python main.py $CONFIGURATION_FILE_PATH $ROM_FILE_PATH $OUTPUT_DIRECTORY_PATH
+(venv) python ./src/extractor/extractor.py $CONFIGURATION_FILE_PATH $ROM_FILE_PATH $OUTPUT_DIRECTORY_PATH
 ```
 
 ## Configuration file reference
@@ -26,113 +26,89 @@ The main goal of this tool is to programmatically extract tiles data contained i
 
 ```yaml
 palettes:
-  - [$BGR15_COLOR_1, $BGR15_COLOR_2, $BGR15_COLOR_3, $BGR15_COLOR_4]
+- &palette-id
+  colors: [0x0000, 0x0000, 0x0000, 0x0000]
+  is_obj: true
 ```
 
-#### Palette
-
-Type: List.
-
-List of 4 colors, encoded in BGR15.
+* Palette.anchor:
+  * Type: String
+  * Palette unique identifier
+* Palette.colors:
+  * Type: List of Integers
+  * List of 4 colors, encoded in BGR15
+* Palette.is_obj:
+  * Type: Boolean
+  * If `true` the first color in the palette will be considered as transparent
 
 ### Tiles
 
 ```yaml
 tiles:
-- id: $ID
-  offset: $OFFSET
-  palette: $PALETTE
-  has_alpha: $HAS_ALPHA
+- &tile-id
+  address: 0x0000
+  palette: *palette-id
 ```
 
-#### Tile
-
-##### Tile.id
-
-Type: String.
-
-Tile unique identifier, used to generate the tile file name.
-
-##### Tile.offset
-
-Type: Integer.
-
-Tile byte offset in the ROM file.
-
-##### Tile.palette
-
-Type: Palette.
-
-The palette to apply on the tile.
-
-##### Tile.has_alpha
-
-Type: Boolean, default: `false`.
-
-If `true` the first color of the palette is considered has transparent.
+* Tile.anchor:
+  * Type: String
+  * Tile unique identifier, used to generate the tile file name 
+* Tile.address:
+  * Type: Integer 
+  * Tile byte offset in the ROM file
+* Tile.palette:
+  * Type: Palette
+  * The palette to apply on the tile 
 
 ### Sprites
 
 ```yaml
 sprites:
-  - id: $ID
-    sprite_tiles:
-    - tile: $TILE_1
-      x_flip: $X_FLIP_TILE_1
-      y_flip: $Y_FLIP_TILE_1
-    - tile: $TILE_2
-      x_flip: $X_FLIP_TILE_2
-      y_flip: $Y_FLIP_TILE_2
-    - tile: $TILE_3
-      x_flip: $X_FLIP_TILE_3
-      y_flip: $Y_FLIP_TILE_3
-    - tile: $TILE_4
-      x_flip: $X_FLIP_TILE_4
-      y_flip: $Y_FLIP_TILE_4
+- &sprite-id
+  sprite_tiles:
+  - tile: *tile-id-1
+    x_flip: true
+    y_flip: true
+  - tile: *tile-id-2
+    x_flip: true
+    y_flip: true
+  - tile: *tile-id-3
+    x_flip: true
+    y_flip: true
+  - tile: *tile-id-4
+    x_flip: true
+    y_flip: true
 ```
 
-#### Sprite
-
-##### Sprite.id
-
-Type: String.
-
-Sprite unique identifier, used to generate the tile file name.
-
-##### Sprite.sprite_tiles.tile
-
-Type: Tile.
-
-Tile composing a 4-tiles sprite.
-Tile order is: top-left, bottom-left, top-right, bottom-right.
-
-##### Sprite.sprite_tiles.x_flip, Sprite.sprite_tiles.y_flip
-
-Type: Boolean, default: `false`.
-
-If `true` the tile will be flipped horizontally or vertically.
+* Sprite.anchor:
+  * Type: String
+  * Sprite unique identifier, used to generate the sprite file name
+* Sprite.sprite_tiles:
+  * Type: List of SpriteTiles
+* Sprite.sprite_tiles.tile
+  * Type: Tile
+  * Tile composing a 4-tiles sprite
+  * Tile order is: top-left, bottom-left, top-right, bottom-right
+* Sprite.sprite_tiles.x_flip, Sprite.sprite_tiles.y_flip:
+  * Type: Boolean, default: `false`
+  * If `true` the tile will be flipped horizontally or vertically
 
 ### Spritesheets
 
 ```yaml
 spritesheets:
-- id: $ID
+- &spritesheet-id
   spritesheet_sprites:
-    - sprite: $SPRITE_1
-    - sprite: $SPRITE_2
+  - sprite: *sprite-id-1
+  - sprite: *sprite-id-2
 ```
 
-#### Spritesheet
-
-##### Spritesheet.id
-
-Type: String.
-
-Spritesheet unique identifier, used to generate the tile file name.
-
-##### Spritesheet.spritesheet_sprites.sprite
-
-Type: Sprite.
-
-Sprite composing a spritesheet.
-Sprites are added from left to right on the spritesheet, without limitation on the number of sprites to use.
+* Spritesheet.anchor:
+  * Type: String
+  * Spritesheet unique identifier, used to generate the spritesheet file name
+* Spritesheet.spritesheet_sprites:
+  * Type: List of SpritesheetSprites
+* Spritesheet.spritesheet_sprites.sprite:
+  * Type: Sprite
+  * Sprite composing a spritesheet
+  * Sprites are added from left to right on the spritesheet, without limitation on the number of sprites to use

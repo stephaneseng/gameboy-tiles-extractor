@@ -1,706 +1,366 @@
 palettes:
 
 - &palette-sword
-  [0x7fff, 0x0000, 0x7e03, 0x46ff]
+  colors: [0x7fff, 0x0000, 0x7e03, 0x46ff]
+  is_obj: true
 
-- &palette-leaf
-  [0x47ff, 0x0000, 0x22a2, 0x46ff]
+- &palette-bush # palette-ground
+  colors: [0x47ff, 0x26c4, 0x1521, 0x0000]
+  is_obj: false
 
-- &palette-rupee-blue
-  [0x7fff, 0x7eae, 0x7c00, 0x0000]
-
-- &palette-bush
-  [0x47ff, 0x26c4, 0x1521, 0x0000]
-
-- &palette-tree-1
-  [0x47ff, 0x26c4, 0x1521, 0x0000] # *palette-bush
+- &palette-tree-1 # palette-ground
+  colors: [0x47ff, 0x26c4, 0x1521, 0x0000]
+  is_obj: false
 
 - &palette-tree-2
-  [0x11d9, 0x26c4, 0x1521, 0x0000]
+  colors: [0x11d9, 0x26c4, 0x1521, 0x0000]
+  is_obj: false
 
 - &palette-tree-3
-  [0x47ff, 0x11d9, 0x10ce, 0x0000]
+  colors: [0x47ff, 0x11d9, 0x10ce, 0x0000]
+  is_obj: false
 
-- &palette-wall-rock
-  [0x47ff, 0x11d9, 0x10ce, 0x0000]
-
-- &palette-wall-rock-border
-  [0x47ff, 0x51f3, 0x2867, 0x0000]
+- &palette-ground-grass # palette-ground
+  colors: [0x47ff, 0x26c4, 0x1521, 0x0000]
+  is_obj: false
 
 - &palette-ground
-  [0x47ff, 0x12ec, 0x15a6, 0x0000]
-
-- &palette-ground-border
-  [0x47ff, 0x12ec, 0x15a6, 0x0000] # *palette-ground
-
-- &palette-ground-grass
-  [0x47ff, 0x12ec, 0x15a6, 0x0000] # *palette-ground
+  colors: [0x47ff, 0x26c4, 0x1521, 0x0000]
+  is_obj: false
 
 - &palette-link
-  [0x47ff, 0x0000, 0x22a2, 0x46ff]
+  colors: [0x47ff, 0x0000, 0x22a2, 0x46ff]
+  is_obj: true
 
-- &palette-ground-flower
-  [0x47ff, 0x12ec, 0x15a6, 0x0000] # *palette-ground
-
-- &palette-stick
-  [0x47ff, 0x11d9, 0x10ce, 0x0000]
+- &palette-ground-flower # palette-ground
+  colors: [0x47ff, 0x26c4, 0x1521, 0x0000]
+  is_obj: false
 
 tiles:
 
 - &tile-sword-idle-down-1
-  id: tile-sword-idle-down-1
-  offset: 0xb0040
+  address: 0xb0040
   palette: *palette-sword
-  has_alpha: true
 
 - &tile-sword-idle-down-2
-  id: tile-sword-idle-down-2
-  offset: 0xb0050
+  address: 0xb0050
   palette: *palette-sword
-  has_alpha: true
 
 - &tile-sword-idle-left-1
-  id: tile-sword-idle-left-1
-  offset: 0xb0060
+  address: 0xb0060
   palette: *palette-sword
-  has_alpha: true
 
 - &tile-sword-idle-left-2
-  id: tile-sword-idle-left-2
-  offset: 0xb0070
+  address: 0xb0070
   palette: *palette-sword
-  has_alpha: true
 
 - &tile-sword-idle-left-3
-  id: tile-sword-idle-left-3
-  offset: 0xb0080
+  address: 0xb0080
   palette: *palette-sword
-  has_alpha: true
 
 - &tile-sword-idle-left-4
-  id: tile-sword-idle-left-4
-  offset: 0xb0090
+  address: 0xb0090
   palette: *palette-sword
-  has_alpha: true
 
 - &tile-sword-attacking-1
-  id: tile-sword-attacking-1
-  offset: 0xb00a0
+  address: 0xb00a0
   palette: *palette-sword
-  has_alpha: true
 
 - &tile-sword-attacking-2
-  id: tile-sword-attacking-2
-  offset: 0xb00b0
+  address: 0xb00b0
   palette: *palette-sword
-  has_alpha: true
 
 - &tile-sword-attacking-3
-  id: tile-sword-attacking-3
-  offset: 0xb00c0
+  address: 0xb00c0
   palette: *palette-sword
-  has_alpha: true
 
 - &tile-sword-attacking-4
-  id: tile-sword-attacking-4
-  offset: 0xb00d0
+  address: 0xb00d0
   palette: *palette-sword
-  has_alpha: true
-
-- id: tile-leaf
-  offset: 0xb0280
-  palette: *palette-leaf
-  has_alpha: true
-
-- id: tile-rupee-1
-  offset: 0xb0a60
-  palette: *palette-rupee-blue
-  has_alpha: true
-
-- id: tile-rupee-2
-  offset: 0xb0a70
-  palette: *palette-rupee-blue
-  has_alpha: true
 
 - &tile-bush-idle-1
-  id: tile-bush-idle-1
-  offset: 0xb0f40
+  address: 0xb0f40
   palette: *palette-bush
 
 - &tile-bush-idle-2
-  id: tile-bush-idle-2
-  offset: 0xb0f50
+  address: 0xb0f50
   palette: *palette-bush
 
 - &tile-bush-idle-3
-  id: tile-bush-idle-3
-  offset: 0xb0f60
+  address: 0xb0f60
   palette: *palette-bush
 
 - &tile-bush-idle-4
-  id: tile-bush-idle-4
-  offset: 0xb0f70
+  address: 0xb0f70
   palette: *palette-bush
 
 - &tile-tree-1-1
-  id: tile-tree-1-1
-  offset: 0xb1200
+  address: 0xb1200
   palette: *palette-tree-1
 
 - &tile-tree-1-2
-  id: tile-tree-1-2
-  offset: 0xb1210
+  address: 0xb1210
   palette: *palette-tree-1
 
 - &tile-tree-1-3
-  id: tile-tree-1-3
-  offset: 0xb1220
+  address: 0xb1220
   palette: *palette-tree-1
 
 - &tile-tree-1-4
-  id: tile-tree-1-4
-  offset: 0xb1230
+  address: 0xb1230
   palette: *palette-tree-1
 
 - &tile-tree-2-1
-  id: tile-tree-2-1
-  offset: 0xb1240
+  address: 0xb1240
   palette: *palette-tree-2
 
 - &tile-tree-2-2
-  id: tile-tree-2-2
-  offset: 0xb1250
+  address: 0xb1250
   palette: *palette-tree-1
 
 - &tile-tree-2-3
-  id: tile-tree-2-3
-  offset: 0xb1260
+  address: 0xb1260
   palette: *palette-tree-1
 
 - &tile-tree-2-4
-  id: tile-tree-2-4
-  offset: 0xb1270
+  address: 0xb1270
   palette: *palette-tree-2
 
-- &tile-wall-rock-border-1
-  id: tile-wall-rock-border-1
-  offset: 0xb12a0
-  palette: *palette-wall-rock-border
-
-- &tile-wall-rock-border-2
-  id: tile-wall-rock-border-2
-  offset: 0xb12b0
-  palette: *palette-wall-rock-border
-
 - &tile-tree-1-5
-  id: tile-tree-1-5
-  offset: 0xb1300
+  address: 0xb1300
   palette: *palette-tree-1
 
 - &tile-tree-1-6
-  id: tile-tree-1-6
-  offset: 0xb1310
+  address: 0xb1310
   palette: *palette-tree-1
 
 - &tile-tree-1-7
-  id: tile-tree-1-7
-  offset: 0xb1320
+  address: 0xb1320
   palette: *palette-tree-1
 
 - &tile-tree-1-8
-  id: tile-tree-1-8
-  offset: 0xb1330
+  address: 0xb1330
   palette: *palette-tree-1
 
 - &tile-tree-2-5
-  id: tile-tree-2-5
-  offset: 0xb1340
+  address: 0xb1340
   palette: *palette-tree-3
 
 - &tile-tree-2-6
-  id: tile-tree-2-6
-  offset: 0xb1350
+  address: 0xb1350
   palette: *palette-tree-3
 
 - &tile-tree-2-7
-  id: tile-tree-2-7
-  offset: 0xb1360
+  address: 0xb1360
   palette: *palette-tree-3
 
 - &tile-tree-2-8
-  id: tile-tree-2-8
-  offset: 0xb1370
+  address: 0xb1370
   palette: *palette-tree-3
 
-- &tile-wall-rock-1
-  id: tile-wall-rock-1
-  offset: 0xb13a0
-  palette: *palette-wall-rock
-
-- &tile-wall-rock-2
-  id: tile-wall-rock-2
-  offset: 0xb13b0
-  palette: *palette-wall-rock
-
-- &tile-wall-rock-3
-  id: tile-wall-rock-3
-  offset: 0xb1400
-  palette: *palette-wall-rock
-
-- &tile-wall-rock-border-3
-  id: tile-wall-rock-border-3
-  offset: 0xb1410
-  palette: *palette-wall-rock-border
-
-- &tile-wall-rock-border-4
-  id: tile-wall-rock-border-4
-  offset: 0xb1420
-  palette: *palette-wall-rock-border
-
-- &tile-wall-rock-4
-  id: tile-wall-rock-4
-  offset: 0xb1430
-  palette: *palette-wall-rock
-
-- &tile-wall-rock-5
-  id: tile-wall-rock-5
-  offset: 0xb1440
-  palette: *palette-wall-rock
-
-- &tile-wall-rock-border-5
-  id: tile-wall-rock-border-5
-  offset: 0xb1450
-  palette: *palette-wall-rock-border
-
-- &tile-wall-rock-6
-  id: tile-wall-rock-6
-  offset: 0xb1470
-  palette: *palette-wall-rock
-
-- &tile-wall-rock-7
-  id: tile-wall-rock-7
-  offset: 0xb1480
-  palette: *palette-wall-rock
-
-- &tile-wall-rock-border-6
-  id: tile-wall-rock-border-6
-  offset: 0xb1490
-  palette: *palette-wall-rock-border
-
-- &tile-wall-rock-8
-  id: tile-wall-rock-8
-  offset: 0xb14a0
-  palette: *palette-wall-rock
-
-- &tile-wall-rock-9
-  id: tile-wall-rock-9
-  offset: 0xb14c0
-  palette: *palette-wall-rock
-
-- &tile-wall-rock-10
-  id: tile-wall-rock-10
-  offset: 0xb14d0
-  palette: *palette-wall-rock
-
-- &tile-wall-rock-11
-  id: tile-wall-rock-11
-  offset: 0xb14e0
-  palette: *palette-wall-rock
-
-- &tile-wall-rock-12
-  id: tile-wall-rock-12
-  offset: 0xb14f0
-  palette: *palette-wall-rock
-
-- &tile-wall-rock-border-7
-  id: tile-wall-rock-border-7
-  offset: 0xb1510
-  palette: *palette-wall-rock-border
-
-- &tile-wall-rock-border-8
-  id: tile-wall-rock-border-8
-  offset: 0xb1520
-  palette: *palette-wall-rock-border
-
-- &tile-wall-rock-13
-  id: tile-wall-rock-13
-  offset: 0xb1540
-  palette: *palette-wall-rock
-
-- &tile-wall-rock-14
-  id: tile-wall-rock-14
-  offset: 0xb1550
-  palette: *palette-wall-rock
-
-- &tile-wall-rock-15
-  id: tile-wall-rock-15
-  offset: 0xb1560
-  palette: *palette-wall-rock
-
-- &tile-wall-rock-16
-  id: tile-wall-rock-16
-  offset: 0xb1570
-  palette: *palette-wall-rock
-
-- &tile-ground-grass-1
-  id: tile-ground-grass-1
-  offset: 0xb1580
+- &tile-ground-grass
+  address: 0xb1580
   palette: *palette-ground-grass
-
-- &tile-wall-rock-17
-  id: tile-wall-rock-17
-  offset: 0xb1590
-  palette: *palette-wall-rock
-
-- &tile-ground-grass-2
-  id: tile-ground-grass-2
-  offset: 0xb15a0
-  palette: *palette-ground-grass
-
-- &tile-wall-rock-border-9
-  id: tile-wall-rock-border-9
-  offset: 0xb15c0
-  palette: *palette-wall-rock-border
-
-- &tile-wall-rock-border-10
-  id: tile-wall-rock-border-10
-  offset: 0xb15d0
-  palette: *palette-wall-rock-border
-
-- &tile-ground-border-1
-  id: tile-ground-border-1
-  offset: 0xb1610
-  palette: *palette-ground-border
-
-- &tile-ground-border-2
-  id: tile-ground-border-2
-  offset: 0xb1630
-  palette: *palette-ground-border
-
-- &tile-wall-rock-door-1
-  id: tile-wall-rock-door-1
-  offset: 0xb1640
-  palette: *palette-wall-rock
-
-- &tile-wall-rock-door-2
-  id: tile-wall-rock-door-2
-  offset: 0xb1660
-  palette: *palette-wall-rock
-
-- &tile-ground-border-3
-  id: tile-ground-border-3
-  offset: 0xb1710
-  palette: *palette-ground-border
 
 - &tile-ground-1
-  id: tile-ground-1
-  offset: 0xb17c0
-  palette: *palette-ground
-
-- &tile-ground-3
-  id: tile-ground-3
-  offset: 0xb17e0
-  palette: *palette-ground
-
-- &tile-ground-4
-  id: tile-ground-4
-  offset: 0xb17f0
+  address: 0xb17c0
   palette: *palette-ground
 
 - &tile-link-idle-down-1
-  id: tile-link-idle-down-1
-  offset: 0xb1800
+  address: 0xb1800
   palette: *palette-link
-  has_alpha: true
 
 - &tile-link-idle-down-2
-  id: tile-link-idle-down-2
-  offset: 0xb1810
+  address: 0xb1810
   palette: *palette-link
-  has_alpha: true
 
 - &tile-link-idle-down-3
-  id: tile-link-idle-down-3
-  offset: 0xb1820
+  address: 0xb1820
   palette: *palette-link
-  has_alpha: true
 
 - &tile-link-idle-down-4
-  id: tile-link-idle-down-4
-  offset: 0xb1830
+  address: 0xb1830
   palette: *palette-link
-  has_alpha: true
 
 - &tile-link-idle-up-1
-  id: tile-link-idle-up-1
-  offset: 0xb1840
+  address: 0xb1840
   palette: *palette-link
-  has_alpha: true
 
 - &tile-link-idle-up-2
-  id: tile-link-idle-up-2
-  offset: 0xb1850
+  address: 0xb1850
   palette: *palette-link
-  has_alpha: true
 
 - &tile-link-idle-up-3
-  id: tile-link-idle-up-3
-  offset: 0xb1860
+  address: 0xb1860
   palette: *palette-link
-  has_alpha: true
 
 - &tile-link-idle-up-4
-  id: tile-link-idle-up-4
-  offset: 0xb1870
+  address: 0xb1870
   palette: *palette-link
-  has_alpha: true
 
 - &tile-link-idle-left-1
-  id: tile-link-idle-left-1
-  offset: 0xb1880
+  address: 0xb1880
   palette: *palette-link
-  has_alpha: true
 
 - &tile-link-idle-left-2
-  id: tile-link-idle-left-2
-  offset: 0xb1890
+  address: 0xb1890
   palette: *palette-link
-  has_alpha: true
 
 - &tile-link-idle-left-3
-  id: tile-link-idle-left-3
-  offset: 0xb18a0
+  address: 0xb18a0
   palette: *palette-link
-  has_alpha: true
 
 - &tile-link-idle-left-4
-  id: tile-link-idle-left-4
-  offset: 0xb18b0
+  address: 0xb18b0
   palette: *palette-link
-  has_alpha: true
 
 - &tile-link-walking-left-1
-  id: tile-link-walking-left-1
-  offset: 0xb18c0
+  address: 0xb18c0
   palette: *palette-link
-  has_alpha: true
 
 - &tile-link-walking-left-2
-  id: tile-link-walking-left-2
-  offset: 0xb18d0
+  address: 0xb18d0
   palette: *palette-link
-  has_alpha: true
 
 - &tile-link-walking-left-3
-  id: tile-link-walking-left-3
-  offset: 0xb18e0
+  address: 0xb18e0
   palette: *palette-link
-  has_alpha: true
 
 - &tile-link-walking-left-4
-  id: tile-link-walking-left-4
-  offset: 0xb18f0
+  address: 0xb18f0
   palette: *palette-link
-  has_alpha: true
-
-- &tile-link-attacking-down-5
-  id: tile-link-attacking-down-5
-  offset: 0xb1a00
-  palette: *palette-link
-  has_alpha: true
-
-- &tile-link-attacking-down-6
-  id: tile-link-attacking-down-6
-  offset: 0xb1a10
-  palette: *palette-link
-  has_alpha: true
-
-- &tile-link-attacking-down-7
-  id: tile-link-attacking-down-7
-  offset: 0xb1a20
-  palette: *palette-link
-  has_alpha: true
-
-- &tile-link-attacking-down-8
-  id: tile-link-attacking-down-8
-  offset: 0xb1a30
-  palette: *palette-link
-  has_alpha: true
-
-- &tile-link-attacking-up-5
-  id: tile-link-attacking-up-5
-  offset: 0xb1a40
-  palette: *palette-link
-  has_alpha: true
-
-- &tile-link-attacking-up-6
-  id: tile-link-attacking-up-6
-  offset: 0xb1a50
-  palette: *palette-link
-  has_alpha: true
-
-- &tile-link-attacking-up-7
-  id: tile-link-attacking-up-7
-  offset: 0xb1a60
-  palette: *palette-link
-  has_alpha: true
-
-- &tile-link-attacking-up-8
-  id: tile-link-attacking-up-8
-  offset: 0xb1a70
-  palette: *palette-link
-  has_alpha: true
-
-- &tile-link-attacking-left-5
-  id: tile-link-attacking-left-5
-  offset: 0xb1a80
-  palette: *palette-link
-  has_alpha: true
-
-- &tile-link-attacking-left-6
-  id: tile-link-attacking-left-6
-  offset: 0xb1a90
-  palette: *palette-link
-  has_alpha: true
-
-- &tile-link-attacking-left-7
-  id: tile-link-attacking-left-7
-  offset: 0xb1aa0
-  palette: *palette-link
-  has_alpha: true
-
-- &tile-link-attacking-left-8
-  id: tile-link-attacking-left-8
-  offset: 0xb1ab0
-  palette: *palette-link
-  has_alpha: true
 
 - &tile-link-attacking-down-1
-  id: tile-link-attacking-down-1
-  offset: 0xb1b00
+  address: 0xb1a00
   palette: *palette-link
-  has_alpha: true
 
 - &tile-link-attacking-down-2
-  id: tile-link-attacking-down-2
-  offset: 0xb1b10
+  address: 0xb1a10
   palette: *palette-link
-  has_alpha: true
 
 - &tile-link-attacking-down-3
-  id: tile-link-attacking-down-3
-  offset: 0xb1b20
+  address: 0xb1a20
   palette: *palette-link
-  has_alpha: true
 
 - &tile-link-attacking-down-4
-  id: tile-link-attacking-down-4
-  offset: 0xb1b30
+  address: 0xb1a30
   palette: *palette-link
-  has_alpha: true
 
 - &tile-link-attacking-up-1
-  id: tile-link-attacking-up-1
-  offset: 0xb1b40
+  address: 0xb1a40
   palette: *palette-link
-  has_alpha: true
 
 - &tile-link-attacking-up-2
-  id: tile-link-attacking-up-2
-  offset: 0xb1b50
+  address: 0xb1a50
   palette: *palette-link
-  has_alpha: true
 
 - &tile-link-attacking-up-3
-  id: tile-link-attacking-up-3
-  offset: 0xb1b60
+  address: 0xb1a60
   palette: *palette-link
-  has_alpha: true
 
 - &tile-link-attacking-up-4
-  id: tile-link-attacking-up-4
-  offset: 0xb1b70
+  address: 0xb1a70
   palette: *palette-link
-  has_alpha: true
 
 - &tile-link-attacking-left-1
-  id: tile-link-attacking-left-1
-  offset: 0xb1b80
+  address: 0xb1a80
   palette: *palette-link
-  has_alpha: true
 
 - &tile-link-attacking-left-2
-  id: tile-link-attacking-left-2
-  offset: 0xb1b90
+  address: 0xb1a90
   palette: *palette-link
-  has_alpha: true
 
 - &tile-link-attacking-left-3
-  id: tile-link-attacking-left-3
-  offset: 0xb1ba0
+  address: 0xb1aa0
   palette: *palette-link
-  has_alpha: true
 
 - &tile-link-attacking-left-4
-  id: tile-link-attacking-left-4
-  offset: 0xb1bb0
+  address: 0xb1ab0
   palette: *palette-link
-  has_alpha: true
+
+- &tile-link-attacking-down-5
+  address: 0xb1b00
+  palette: *palette-link
+
+- &tile-link-attacking-down-6
+  address: 0xb1b10
+  palette: *palette-link
+
+- &tile-link-attacking-down-7
+  address: 0xb1b20
+  palette: *palette-link
+
+- &tile-link-attacking-down-8
+  address: 0xb1b30
+  palette: *palette-link
+
+- &tile-link-attacking-up-5
+  address: 0xb1b40
+  palette: *palette-link
+
+- &tile-link-attacking-up-6
+  address: 0xb1b50
+  palette: *palette-link
+
+- &tile-link-attacking-up-7
+  address: 0xb1b60
+  palette: *palette-link
+
+- &tile-link-attacking-up-8
+  address: 0xb1b70
+  palette: *palette-link
+
+- &tile-link-attacking-left-5
+  address: 0xb1b80
+  palette: *palette-link
+
+- &tile-link-attacking-left-6
+  address: 0xb1b90
+  palette: *palette-link
+
+- &tile-link-attacking-left-7
+  address: 0xb1ba0
+  palette: *palette-link
+
+- &tile-link-attacking-left-8
+  address: 0xb1bb0
+  palette: *palette-link
 
 - &tile-ground-flower-1
-  id: tile-ground-flower-1
-  offset: 0xb3720
+  address: 0xb3720
   palette: *palette-ground-flower
 
 - &tile-ground-flower-2
-  id: tile-ground-flower-2
-  offset: 0xb3730
+  address: 0xb3730
   palette: *palette-ground-flower
 
 - &tile-ground-flower-3
-  id: tile-ground-flower-3
-  offset: 0xb3760
+  address: 0xb3760
   palette: *palette-ground-flower
 
 - &tile-ground-flower-4
-  id: tile-ground-flower-4
-  offset: 0xb3770
+  address: 0xb3770
   palette: *palette-ground-flower
 
 - &tile-ground-flower-5
-  id: tile-ground-flower-5
-  offset: 0xb37a0
+  address: 0xb37a0
   palette: *palette-ground-flower
 
 - &tile-ground-flower-6
-  id: tile-ground-flower-6
-  offset: 0xb37b0
+  address: 0xb37b0
   palette: *palette-ground-flower
 
 - &tile-ground-flower-7
-  id: tile-ground-flower-7
-  offset: 0xb37e0
+  address: 0xb37e0
   palette: *palette-ground-flower
 
 - &tile-ground-flower-8
-  id: tile-ground-flower-8
-  offset: 0xb37f0
+  address: 0xb37f0
   palette: *palette-ground-flower
-
-- &tile-stick-1
-  id: tile-stick-1
-  offset: 0xbe6c0
-  palette: *palette-stick
-
-- &tile-stick-2
-  id: tile-stick-2
-  offset: 0xbe7c0
-  palette: *palette-stick
 
 sprites:
 
 - &sprite-sword-attacking-down-1
-  id: sprite-sword-attacking-down-1
   sprite_tiles:
   - tile: *tile-sword-idle-left-1
   - tile: *tile-sword-idle-left-2
@@ -708,7 +368,6 @@ sprites:
   - tile: *tile-sword-idle-left-4
 
 - &sprite-sword-attacking-down-2
-  id: sprite-sword-attacking-down-2
   sprite_tiles:
   - tile: *tile-sword-attacking-2
     y_flip: true
@@ -720,7 +379,6 @@ sprites:
     y_flip: true
 
 - &sprite-sword-attacking-down-3
-  id: sprite-sword-attacking-down-3
   sprite_tiles:
   - tile: *tile-sword-idle-left-1
   - tile: *tile-sword-idle-left-3
@@ -728,7 +386,6 @@ sprites:
   - tile: *tile-sword-idle-down-2
 
 - &sprite-sword-attacking-up-1
-  id: sprite-sword-attacking-up-1
   sprite_tiles:
   - tile: *tile-sword-idle-left-3
     x_flip: true
@@ -740,7 +397,6 @@ sprites:
     x_flip: true
 
 - &sprite-sword-attacking-up-2
-  id: sprite-sword-attacking-up-2
   sprite_tiles:
   - tile: *tile-sword-attacking-3
     x_flip: true
@@ -752,7 +408,6 @@ sprites:
     x_flip: true
 
 - &sprite-sword-attacking-up-3
-  id: sprite-sword-attacking-up-3
   sprite_tiles:
   - tile: *tile-sword-idle-down-2
     y_flip: true
@@ -762,7 +417,6 @@ sprites:
   - tile: *tile-sword-idle-left-3
 
 - &sprite-sword-attacking-left-1
-  id: sprite-sword-attacking-left-1
   sprite_tiles:
   - tile: *tile-sword-idle-down-2
     y_flip: true
@@ -772,7 +426,6 @@ sprites:
   - tile: *tile-sword-idle-left-3
 
 - &sprite-sword-attacking-left-2
-  id: sprite-sword-attacking-left-2
   sprite_tiles:
   - tile: *tile-sword-attacking-1
   - tile: *tile-sword-attacking-2
@@ -788,7 +441,6 @@ sprites:
   - tile: *tile-sword-idle-left-4
 
 - &sprite-sword-attacking-right-1
-  id: sprite-sword-attacking-right-1
   sprite_tiles:
   - tile: *tile-sword-idle-left-1
   - tile: *tile-sword-idle-left-3
@@ -798,7 +450,6 @@ sprites:
     y_flip: true
 
 - &sprite-sword-attacking-right-2
-  id: sprite-sword-attacking-right-2
   sprite_tiles:
   - tile: *tile-sword-attacking-3
     x_flip: true
@@ -810,7 +461,6 @@ sprites:
     x_flip: true
 
 - &sprite-sword-attacking-right-3
-  id: sprite-sword-attacking-right-3
   sprite_tiles:
   - tile: *tile-sword-idle-left-3
     x_flip: true
@@ -821,464 +471,209 @@ sprites:
   - tile: *tile-sword-idle-left-2
     x_flip: true
 
-- id: sprite-bush-idle
+- &sprite-bush-idle
   sprite_tiles:
   - tile: *tile-bush-idle-1
   - tile: *tile-bush-idle-2
   - tile: *tile-bush-idle-3
   - tile: *tile-bush-idle-4
 
-- id: sprite-tree-1-1
+- &sprite-tree-1-1
   sprite_tiles:
   - tile: *tile-tree-1-1
   - tile: *tile-tree-1-5
   - tile: *tile-tree-1-2
   - tile: *tile-tree-1-6
 
-- id: sprite-tree-1-2
+- &sprite-tree-1-2
   sprite_tiles:
   - tile: *tile-tree-1-3
   - tile: *tile-tree-1-7
   - tile: *tile-tree-1-4
   - tile: *tile-tree-1-8
 
-- id: sprite-tree-2-1
+- &sprite-tree-2-1
   sprite_tiles:
   - tile: *tile-tree-2-1
   - tile: *tile-tree-2-5
   - tile: *tile-tree-2-2
   - tile: *tile-tree-2-6
 
-- id: sprite-tree-2-2
+- &sprite-tree-2-2
   sprite_tiles:
   - tile: *tile-tree-2-3
   - tile: *tile-tree-2-7
   - tile: *tile-tree-2-4
   - tile: *tile-tree-2-8
 
-- id: sprite-wall-rock-inner-border-1
-  sprite_tiles:
-  - tile: *tile-wall-rock-9
-  - tile: *tile-wall-rock-7
-  - tile: *tile-wall-rock-8
-  - tile: *tile-wall-rock-border-9
-
-- id: sprite-wall-rock-inner-border-2
-  sprite_tiles:
-  - tile: *tile-wall-rock-7
-  - tile: *tile-wall-rock-7
-  - tile: *tile-wall-rock-border-6
-  - tile: *tile-wall-rock-border-6
-
-- id: sprite-wall-rock-inner-border-3-1
-  sprite_tiles:
-  - tile: *tile-wall-rock-7
-  - tile: *tile-wall-rock-5
-  - tile: *tile-wall-rock-border-7
-  - tile: *tile-wall-rock-15
-
-- id: sprite-wall-rock-inner-border-3-2
-  sprite_tiles:
-  - tile: *tile-wall-rock-7
-  - tile: *tile-wall-rock-13
-  - tile: *tile-wall-rock-border-7
-  - tile: *tile-wall-rock-15
-
-- id: sprite-wall-rock-inner-border-4
-  sprite_tiles:
-  - tile: *tile-wall-rock-8
-  - tile: *tile-wall-rock-border-5
-  - tile: *tile-wall-rock-8
-  - tile: *tile-wall-rock-border-5
-
-- id: sprite-wall-rock-inner-border-5
-  sprite_tiles:
-  - tile: *tile-wall-rock-border-5
-  - tile: *tile-wall-rock-14
-  - tile: *tile-wall-rock-border-5
-  - tile: *tile-wall-rock-15
-
-- id: sprite-wall-rock-inner-border-6
-  sprite_tiles:
-  - tile: *tile-wall-rock-8
-  - tile: *tile-wall-rock-border-10
-  - tile: *tile-wall-rock-10
-  - tile: *tile-wall-rock-17
-
-- id: sprite-wall-rock-inner-border-7
-  sprite_tiles:
-  - tile: *tile-wall-rock-border-6
-  - tile: *tile-wall-rock-border-6
-  - tile: *tile-wall-rock-17
-  - tile: *tile-wall-rock-17
-
-- id: sprite-wall-rock-inner-border-8-1
-  sprite_tiles:
-  - tile: *tile-wall-rock-border-8
-  - tile: *tile-wall-rock-14
-  - tile: *tile-wall-rock-17
-  - tile: *tile-wall-rock-6
-
-- id: sprite-wall-rock-inner-border-8-2
-  sprite_tiles:
-  - tile: *tile-wall-rock-border-8
-  - tile: *tile-wall-rock-14
-  - tile: *tile-wall-rock-17
-  - tile: *tile-wall-rock-16
-
-- id: sprite-wall-rock-outer-border-1
-  sprite_tiles:
-  - tile: *tile-wall-rock-border-4
-  - tile: *tile-wall-rock-border-6
-  - tile: *tile-wall-rock-border-5
-  - tile: *tile-wall-rock-3
-
-- id: sprite-wall-rock-outer-border-2
-  sprite_tiles:
-  - tile: *tile-wall-rock-border-6
-  - tile: *tile-wall-rock-border-7
-  - tile: *tile-wall-rock-12
-  - tile: *tile-wall-rock-border-5
-
-- id: sprite-wall-rock-outer-border-3
-  sprite_tiles:
-  - tile: *tile-wall-rock-border-5
-  - tile: *tile-wall-rock-4
-  - tile: *tile-wall-rock-border-3
-  - tile: *tile-wall-rock-border-6
-
-- id: sprite-wall-rock-outer-border-4
-  sprite_tiles:
-  - tile: *tile-wall-rock-11
-  - tile: *tile-wall-rock-border-5
-  - tile: *tile-wall-rock-border-6
-  - tile: *tile-wall-rock-border-8
-
-- id: sprite-wall-rock-1-1
-  sprite_tiles:
-  - tile: *tile-wall-rock-5
-  - tile: *tile-wall-rock-5
-  - tile: *tile-wall-rock-15
-  - tile: *tile-wall-rock-15
-
-- id: sprite-wall-rock-1-2
-  sprite_tiles:
-  - tile: *tile-wall-rock-5
-  - tile: *tile-wall-rock-13
-  - tile: *tile-wall-rock-15
-  - tile: *tile-wall-rock-15
-
-- id: sprite-wall-rock-2
-  sprite_tiles:
-  - tile: *tile-wall-rock-14
-  - tile: *tile-wall-rock-14
-  - tile: *tile-wall-rock-15
-  - tile: *tile-wall-rock-15
-
-- id: sprite-wall-rock-3-1
-  sprite_tiles:
-  - tile: *tile-wall-rock-14
-  - tile: *tile-wall-rock-14
-  - tile: *tile-wall-rock-6
-  - tile: *tile-wall-rock-6
-
-- id: sprite-wall-rock-3-2
-  sprite_tiles:
-  - tile: *tile-wall-rock-14
-  - tile: *tile-wall-rock-14
-  - tile: *tile-wall-rock-6
-  - tile: *tile-wall-rock-16
-
-- id: sprite-ground-grass
-  sprite_tiles:
-  - tile: *tile-ground-grass-2
-  - tile: *tile-ground-4
-  - tile: *tile-ground-4
-  - tile: *tile-ground-grass-2
-
-- id: sprite-ground-border-1
-  sprite_tiles:
-  - tile: *tile-ground-border-1
-  - tile: *tile-ground-border-3
-  - tile: *tile-ground-border-2
-  - tile: *tile-ground-grass-1
-
-- id: sprite-ground-border-2
-  sprite_tiles:
-  - tile: *tile-ground-border-3
-  - tile: *tile-ground-border-3
-  - tile: *tile-ground-1
-  - tile: *tile-ground-1
-
-- id: sprite-ground-border-3
-  sprite_tiles:
-  - tile: *tile-ground-border-3
-  - tile: *tile-ground-border-1
-    y_flip: true
-  - tile: *tile-ground-grass-1
-  - tile: *tile-ground-border-2
-    y_flip: true
-
-- id: sprite-ground-border-4
-  sprite_tiles:
-  - tile: *tile-ground-border-2
-  - tile: *tile-ground-1
-  - tile: *tile-ground-border-2
-  - tile: *tile-ground-1
-
-- id: sprite-ground-border-5
-  sprite_tiles:
-  - tile: *tile-ground-1
-  - tile: *tile-ground-border-2
-    y_flip: true
-  - tile: *tile-ground-1
-  - tile: *tile-ground-border-2
-    y_flip: true
-
-- id: sprite-ground-border-6
-  sprite_tiles:
-  - tile: *tile-ground-border-2
-  - tile: *tile-ground-grass-1
-    x_flip: true
-  - tile: *tile-ground-border-1
-    x_flip: true
-  - tile: *tile-ground-border-3
-    x_flip: true
-
-- id: sprite-ground-border-7
-  sprite_tiles:
-  - tile: *tile-ground-1
-  - tile: *tile-ground-1
-  - tile: *tile-ground-border-3
-    x_flip: true
-  - tile: *tile-ground-border-3
-    x_flip: true
-
-- id: sprite-ground-border-8
-  sprite_tiles:
-  - tile: *tile-ground-grass-1
-    x_flip: true
-  - tile: *tile-ground-border-2
-    y_flip: true
-  - tile: *tile-ground-border-3
-    x_flip: true
-  - tile: *tile-ground-border-1
-    x_flip: true
-    y_flip: true
-
-- id: sprite-wall-rock-door
-  sprite_tiles:
-  - tile: *tile-wall-rock-door-1
-  - tile: *tile-wall-rock-door-2
-  - tile: *tile-wall-rock-door-1
-    x_flip: true
-  - tile: *tile-wall-rock-door-2
-    x_flip: true
-
-- id: sprite-ground-1
+- &sprite-ground-1
   sprite_tiles:
   - tile: *tile-ground-1
   - tile: *tile-ground-1
   - tile: *tile-ground-1
   - tile: *tile-ground-1
-
-- id: sprite-ground-3
-  sprite_tiles:
-  - tile: *tile-ground-3
-  - tile: *tile-ground-3
-  - tile: *tile-ground-3
-  - tile: *tile-ground-3
-
-- id: sprite-ground-4
-  sprite_tiles:
-  - tile: *tile-ground-4
-  - tile: *tile-ground-4
-  - tile: *tile-ground-4
-  - tile: *tile-ground-4
 
 - &sprite-link-idle-down
-  id: sprite-link-idle-down
   sprite_tiles:
-  - tile: *tile-link-idle-down-1
-  - tile: *tile-link-idle-down-2
-  - tile: *tile-link-idle-down-3
-  - tile: *tile-link-idle-down-4
+    - tile: *tile-link-idle-down-1
+    - tile: *tile-link-idle-down-2
+    - tile: *tile-link-idle-down-3
+    - tile: *tile-link-idle-down-4
 
 - &sprite-link-walking-down-1
-  id: sprite-link-walking-down-1
   sprite_tiles:
-  - tile: *tile-link-idle-down-3
-    x_flip: true
-  - tile: *tile-link-idle-down-4
-    x_flip: true
-  - tile: *tile-link-idle-down-1
-    x_flip: true
-  - tile: *tile-link-idle-down-2
-    x_flip: true
+    - tile: *tile-link-idle-down-3
+      x_flip: true
+    - tile: *tile-link-idle-down-4
+      x_flip: true
+    - tile: *tile-link-idle-down-1
+      x_flip: true
+    - tile: *tile-link-idle-down-2
+      x_flip: true
 
 - &sprite-link-walking-down-2
   <<: *sprite-link-idle-down
-  id: sprite-link-walking-down-2
 
 - &sprite-link-idle-up
-  id: sprite-link-idle-up
   sprite_tiles:
-  - tile: *tile-link-idle-up-1
-  - tile: *tile-link-idle-up-2
-  - tile: *tile-link-idle-up-3
-  - tile: *tile-link-idle-up-4
+    - tile: *tile-link-idle-up-1
+    - tile: *tile-link-idle-up-2
+    - tile: *tile-link-idle-up-3
+    - tile: *tile-link-idle-up-4
 
 - &sprite-link-walking-up-1
-  id: sprite-link-walking-up-1
   sprite_tiles:
-  - tile: *tile-link-idle-up-3
-    x_flip: true
-  - tile: *tile-link-idle-up-4
-    x_flip: true
-  - tile: *tile-link-idle-up-1
-    x_flip: true
-  - tile: *tile-link-idle-up-2
-    x_flip: true
+    - tile: *tile-link-idle-up-3
+      x_flip: true
+    - tile: *tile-link-idle-up-4
+      x_flip: true
+    - tile: *tile-link-idle-up-1
+      x_flip: true
+    - tile: *tile-link-idle-up-2
+      x_flip: true
 
 - &sprite-link-walking-up-2
   <<: *sprite-link-idle-up
-  id: sprite-link-walking-up-2
 
 - &sprite-link-idle-left
-  id: sprite-link-idle-left
   sprite_tiles:
-  - tile: *tile-link-idle-left-1
-  - tile: *tile-link-idle-left-2
-  - tile: *tile-link-idle-left-3
-  - tile: *tile-link-idle-left-4
+    - tile: *tile-link-idle-left-1
+    - tile: *tile-link-idle-left-2
+    - tile: *tile-link-idle-left-3
+    - tile: *tile-link-idle-left-4
 
 - &sprite-link-walking-left-1
-  id: sprite-link-walking-left-1
   sprite_tiles:
-  - tile: *tile-link-walking-left-1
-  - tile: *tile-link-walking-left-2
-  - tile: *tile-link-walking-left-3
-  - tile: *tile-link-walking-left-4
+    - tile: *tile-link-walking-left-1
+    - tile: *tile-link-walking-left-2
+    - tile: *tile-link-walking-left-3
+    - tile: *tile-link-walking-left-4
 
 - &sprite-link-walking-left-2
   <<: *sprite-link-idle-left
-  id: sprite-link-walking-left-2
 
 - &sprite-link-idle-right
-  id: sprite-link-idle-right
   sprite_tiles:
-  - tile: *tile-link-idle-left-3
-    x_flip: true
-  - tile: *tile-link-idle-left-4
-    x_flip: true
-  - tile: *tile-link-idle-left-1
-    x_flip: true
-  - tile: *tile-link-idle-left-2
-    x_flip: true
+    - tile: *tile-link-idle-left-3
+      x_flip: true
+    - tile: *tile-link-idle-left-4
+      x_flip: true
+    - tile: *tile-link-idle-left-1
+      x_flip: true
+    - tile: *tile-link-idle-left-2
+      x_flip: true
 
 - &sprite-link-walking-right-1
-  id: sprite-link-walking-right-1
   sprite_tiles:
-  - tile: *tile-link-walking-left-3
-    x_flip: true
-  - tile: *tile-link-walking-left-4
-    x_flip: true
-  - tile: *tile-link-walking-left-1
-    x_flip: true
-  - tile: *tile-link-walking-left-2
-    x_flip: true
+    - tile: *tile-link-walking-left-3
+      x_flip: true
+    - tile: *tile-link-walking-left-4
+      x_flip: true
+    - tile: *tile-link-walking-left-1
+      x_flip: true
+    - tile: *tile-link-walking-left-2
+      x_flip: true
 
 - &sprite-link-walking-right-2
   <<: *sprite-link-idle-right
-  id: sprite-link-walking-right-2
 
 - &sprite-link-attacking-down-1
-  id: sprite-link-attacking-down-1
-  sprite_tiles:
-  - tile: *tile-link-attacking-down-1
-  - tile: *tile-link-attacking-down-2
-  - tile: *tile-link-attacking-down-3
-  - tile: *tile-link-attacking-down-4
+ sprite_tiles:
+    - tile: *tile-link-attacking-down-5
+    - tile: *tile-link-attacking-down-6
+    - tile: *tile-link-attacking-down-7
+    - tile: *tile-link-attacking-down-8
 
 - &sprite-link-attacking-down-2
-  id: sprite-link-attacking-down-2
   sprite_tiles:
-  - tile: *tile-link-attacking-down-5
-  - tile: *tile-link-attacking-down-6
-  - tile: *tile-link-attacking-down-7
-  - tile: *tile-link-attacking-down-8
+    - tile: *tile-link-attacking-down-1
+    - tile: *tile-link-attacking-down-2
+    - tile: *tile-link-attacking-down-3
+    - tile: *tile-link-attacking-down-4
 
 - &sprite-link-attacking-up-1
-  id: sprite-link-attacking-up-1
   sprite_tiles:
-  - tile: *tile-link-attacking-up-1
-  - tile: *tile-link-attacking-up-2
-  - tile: *tile-link-attacking-up-3
-  - tile: *tile-link-attacking-up-4
+    - tile: *tile-link-attacking-up-5
+    - tile: *tile-link-attacking-up-6
+    - tile: *tile-link-attacking-up-7
+    - tile: *tile-link-attacking-up-8
 
 - &sprite-link-attacking-up-2
-  id: sprite-link-attacking-up-2
   sprite_tiles:
-  - tile: *tile-link-attacking-up-5
-  - tile: *tile-link-attacking-up-6
-  - tile: *tile-link-attacking-up-7
-  - tile: *tile-link-attacking-up-8
+    - tile: *tile-link-attacking-up-1
+    - tile: *tile-link-attacking-up-2
+    - tile: *tile-link-attacking-up-3
+    - tile: *tile-link-attacking-up-4
 
 - &sprite-link-attacking-left-1
-  id: sprite-link-attacking-left-1
   sprite_tiles:
-  - tile: *tile-link-attacking-left-1
-  - tile: *tile-link-attacking-left-2
-  - tile: *tile-link-attacking-left-3
-  - tile: *tile-link-attacking-left-4
+    - tile: *tile-link-attacking-left-5
+    - tile: *tile-link-attacking-left-6
+    - tile: *tile-link-attacking-left-7
+    - tile: *tile-link-attacking-left-8
 
 - &sprite-link-attacking-left-2
-  id: sprite-link-attacking-left-2
   sprite_tiles:
-  - tile: *tile-link-attacking-left-5
-  - tile: *tile-link-attacking-left-6
-  - tile: *tile-link-attacking-left-7
-  - tile: *tile-link-attacking-left-8
+    - tile: *tile-link-attacking-left-1
+    - tile: *tile-link-attacking-left-2
+    - tile: *tile-link-attacking-left-3
+    - tile: *tile-link-attacking-left-4
 
 - &sprite-link-attacking-right-1
-  id: sprite-link-attacking-right-1
   sprite_tiles:
-  - tile: *tile-link-attacking-left-3
-    x_flip: true
-  - tile: *tile-link-attacking-left-4
-    x_flip: true
-  - tile: *tile-link-attacking-left-1
-    x_flip: true
-  - tile: *tile-link-attacking-left-2
-    x_flip: true
+    - tile: *tile-link-attacking-left-7
+      x_flip: true
+    - tile: *tile-link-attacking-left-8
+      x_flip: true
+    - tile: *tile-link-attacking-left-5
+      x_flip: true
+    - tile: *tile-link-attacking-left-6
+      x_flip: true
 
 - &sprite-link-attacking-right-2
-  id: sprite-link-attacking-right-2
   sprite_tiles:
-  - tile: *tile-link-attacking-left-7
-    x_flip: true
-  - tile: *tile-link-attacking-left-8
-    x_flip: true
-  - tile: *tile-link-attacking-left-5
-    x_flip: true
-  - tile: *tile-link-attacking-left-6
-    x_flip: true
+    - tile: *tile-link-attacking-left-3
+      x_flip: true
+    - tile: *tile-link-attacking-left-4
+      x_flip: true
+    - tile: *tile-link-attacking-left-1
+      x_flip: true
+    - tile: *tile-link-attacking-left-2
+      x_flip: true
 
 - &sprite-ground-flower-1
-  id: sprite-ground-flower-1
   sprite_tiles:
   - tile: *tile-ground-flower-1
-  - tile: *tile-ground-grass-1
-  - tile: *tile-ground-grass-1
+  - tile: *tile-ground-grass
+  - tile: *tile-ground-grass
     x_flip: true
   - tile: *tile-ground-flower-2
 
 - &sprite-ground-flower-2
-  id: sprite-ground-flower-2
   sprite_tiles:
   - tile: *tile-ground-flower-3
-  - tile: *tile-ground-grass-1
-  - tile: *tile-ground-grass-1
+  - tile: *tile-ground-grass
+  - tile: *tile-ground-grass
     x_flip: true
   - tile: *tile-ground-flower-4
 
@@ -1286,8 +681,8 @@ sprites:
   id: sprite-ground-flower-3
   sprite_tiles:
   - tile: *tile-ground-flower-5
-  - tile: *tile-ground-grass-1
-  - tile: *tile-ground-grass-1
+  - tile: *tile-ground-grass
+  - tile: *tile-ground-grass
     x_flip: true
   - tile: *tile-ground-flower-6
 
@@ -1295,87 +690,80 @@ sprites:
   id: sprite-ground-flower-4
   sprite_tiles:
   - tile: *tile-ground-flower-7
-  - tile: *tile-ground-grass-1
-  - tile: *tile-ground-grass-1
+  - tile: *tile-ground-grass
+  - tile: *tile-ground-grass
     x_flip: true
   - tile: *tile-ground-flower-8
 
-- id: sprite-stick
-  sprite_tiles:
-  - tile: *tile-stick-1
-  - tile: *tile-stick-2
-  - tile: *tile-stick-1
-  - tile: *tile-stick-2
-
 spritesheets:
 
-- id: spritesheet-sword-attacking-down
+- &spritesheet-sword-attacking-down
   spritesheet_sprites:
   - sprite: *sprite-sword-attacking-down-1
   - sprite: *sprite-sword-attacking-down-2
   - sprite: *sprite-sword-attacking-down-3
 
-- id: spritesheet-sword-attacking-up
+- &spritesheet-sword-attacking-up
   spritesheet_sprites:
   - sprite: *sprite-sword-attacking-up-1
   - sprite: *sprite-sword-attacking-up-2
   - sprite: *sprite-sword-attacking-up-3
 
-- id: spritesheet-sword-attacking-left
+- &spritesheet-sword-attacking-left
   spritesheet_sprites:
   - sprite: *sprite-sword-attacking-left-1
   - sprite: *sprite-sword-attacking-left-2
   - sprite: *sprite-sword-attacking-left-3
 
-- id: spritesheet-sword-attacking-right
+- &spritesheet-sword-attacking-right
   spritesheet_sprites:
   - sprite: *sprite-sword-attacking-right-1
   - sprite: *sprite-sword-attacking-right-2
   - sprite: *sprite-sword-attacking-right-3
 
-- id: spritesheet-link-walking-down
-  spritesheet_sprites:
-  - sprite: *sprite-link-walking-down-1
-  - sprite: *sprite-link-walking-down-2
-
-- id: spritesheet-link-walking-up
-  spritesheet_sprites:
-  - sprite: *sprite-link-walking-up-1
-  - sprite: *sprite-link-walking-up-2
-
-- id: spritesheet-link-walking-left
-  spritesheet_sprites:
-  - sprite: *sprite-link-walking-left-1
-  - sprite: *sprite-link-walking-left-2
-
-- id: spritesheet-link-walking-right
-  spritesheet_sprites:
-  - sprite: *sprite-link-walking-right-1
-  - sprite: *sprite-link-walking-right-2
-
-- id: spritesheet-link-attacking-down
-  spritesheet_sprites:
-  - sprite: *sprite-link-attacking-down-1
-  - sprite: *sprite-link-attacking-down-2
-
-- id: spritesheet-link-attacking-up
-  spritesheet_sprites:
-  - sprite: *sprite-link-attacking-up-1
-  - sprite: *sprite-link-attacking-up-2
-
-- id: spritesheet-link-attacking-left
-  spritesheet_sprites:
-  - sprite: *sprite-link-attacking-left-1
-  - sprite: *sprite-link-attacking-left-2
-
-- id: spritesheet-link-attacking-right
-  spritesheet_sprites:
-  - sprite: *sprite-link-attacking-right-1
-  - sprite: *sprite-link-attacking-right-2
-
-- id: spritesheet-ground-flower
+- &spritesheet-ground-flower
   spritesheet_sprites:
   - sprite: *sprite-ground-flower-1
   - sprite: *sprite-ground-flower-2
   - sprite: *sprite-ground-flower-3
   - sprite: *sprite-ground-flower-4
+
+- &spritesheet-link-walking-down
+  spritesheet_sprites:
+    - sprite: *sprite-link-walking-down-1
+    - sprite: *sprite-link-walking-down-2
+
+- &spritesheet-link-walking-up
+  spritesheet_sprites:
+    - sprite: *sprite-link-walking-up-1
+    - sprite: *sprite-link-walking-up-2
+
+- &spritesheet-link-walking-left
+  spritesheet_sprites:
+    - sprite: *sprite-link-walking-left-1
+    - sprite: *sprite-link-walking-left-2
+
+- &spritesheet-link-walking-right
+  spritesheet_sprites:
+    - sprite: *sprite-link-walking-right-1
+    - sprite: *sprite-link-walking-right-2
+
+- &spritesheet-link-attacking-down
+  spritesheet_sprites:
+    - sprite: *sprite-link-attacking-down-1
+    - sprite: *sprite-link-attacking-down-2
+
+- &spritesheet-link-attacking-up
+  spritesheet_sprites:
+    - sprite: *sprite-link-attacking-up-1
+    - sprite: *sprite-link-attacking-up-2
+
+- &spritesheet-link-attacking-left
+  spritesheet_sprites:
+    - sprite: *sprite-link-attacking-left-1
+    - sprite: *sprite-link-attacking-left-2
+
+- &spritesheet-link-attacking-right
+  spritesheet_sprites:
+    - sprite: *sprite-link-attacking-right-1
+    - sprite: *sprite-link-attacking-right-2

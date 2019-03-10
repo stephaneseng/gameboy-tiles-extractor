@@ -20,6 +20,14 @@ The main goal of this tool is to programmatically extract tiles data contained i
 (venv) python ./src/extractor/extractor.py $CONFIGURATION_FILE_PATH $ROM_FILE_PATH $OUTPUT_DIRECTORY_PATH
 ```
 
+## Development
+
+### Run the tests
+
+```bash
+(venv) python -m unittest discover
+```
+
 ## Configuration file reference
 
 ### Palettes
@@ -27,7 +35,7 @@ The main goal of this tool is to programmatically extract tiles data contained i
 ```yaml
 palettes:
 - &palette-id
-  colors: [0x0000, 0x0000, 0x0000, 0x0000]
+  colors: [0x1, 0x2, 0x3, 0x4]
   is_obj: true
 ```
 
@@ -46,7 +54,7 @@ palettes:
 ```yaml
 tiles:
 - &tile-id
-  address: 0x0000
+  address: 0x1
   palette: *palette-id
 ```
 

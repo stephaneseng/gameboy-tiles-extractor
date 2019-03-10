@@ -120,7 +120,7 @@ class Rom:
         self.stream.seek(address)
         return self.stream.read(size)
 
-    def __convert_rom_2bpp_bytes_to_indexed_pixels(self, rom_2bpp_bytes: bytes) -> list:
+    def convert_rom_2bpp_bytes_to_indexed_pixels(self, rom_2bpp_bytes: bytes) -> list:
         indexed_pixels = []
         for pair in [[rom_2bpp_bytes[i], rom_2bpp_bytes[i + 1]] for i in range(0, len(rom_2bpp_bytes), 2)]:
             low_byte = pair[0]
@@ -128,7 +128,7 @@ class Rom:
             indexed_pixels.extend([((high_byte >> i & 1) << 1) | (low_byte >> i & 1) for i in range(8 - 1, -1, -1)])
         return indexed_pixels
 
-    def __convert_bgr15_color_to_rgba32_bytes(self, bgr15_color: int, alpha: int) -> bytes:
+    def convert_bgr15_color_to_rgba32_bytes(self, bgr15_color: int, alpha: int) -> bytes:
         red = floor((bgr15_color & 0x1f) / 31 * 255)
         green = floor((bgr15_color >> 5 & 0x1f) / 31 * 255)
         blue = floor((bgr15_color >> 10 & 0x1f) / 31 * 255)
@@ -139,12 +139,12 @@ class Rom:
         for indexed_pixel in indexed_pixels:
             alphas = [0, 255, 255, 255] if palette.is_obj else [255, 255, 255, 255]
             image_bytes.extend(bytearray(
-                self.__convert_bgr15_color_to_rgba32_bytes(palette.colors[indexed_pixel], alphas[indexed_pixel])))
+                self.convert_bgr15_color_to_rgba32_bytes(palette.colors[indexed_pixel], alphas[indexed_pixel])))
         return Image.frombytes('RGBA', (8, 8), bytes(image_bytes))
 
     def read_tile(self, configuration_tile: 'Configuration.Tile') -> Image:
         rom_2bpp_bytes = self.__read_rom_bytes(configuration_tile.address, 16)
-        indexed_pixels = self.__convert_rom_2bpp_bytes_to_indexed_pixels(rom_2bpp_bytes)
+        indexed_pixels = self.convert_rom_2bpp_bytes_to_indexed_pixels(rom_2bpp_bytes)
         return self.__convert_indexed_pixels_to_image(indexed_pixels, configuration_tile.palette)
 
     def read_sprite(self, configuration_sprite: 'Configuration.Sprite') -> Image:
@@ -180,13 +180,13 @@ def is_directory_path(path) -> bool:
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('configuration_file_path', metavar='configuration-file-path', type=argparse.FileType('r'))
-    parser.add_argument('rom_file_path', metavar='rom-file-path', type=argparse.FileType('rb'))
+    parser.add_argument('configuration_file', metavar='configuration-file-path', type=argparse.FileType('r'))
+    parser.add_argument('rom_file', metavar='rom-file-path', type=argparse.FileType('rb'))
     parser.add_argument('output_directory_path', metavar='output-directory-path', type=is_directory_path)
     args = parser.parse_args()
 
-    configuration = Configuration(args.configuration_file_path)
-    rom = Rom(args.rom_file_path)
+    configuration = Configuration(args.configuration_file)
+    rom = Rom(args.rom_file)
 
     for configuration_tile in configuration.tiles.tiles.values():
         image = rom.read_tile(configuration_tile)

@@ -1,2 +1,2 @@
-Pillow==5.2.0
-PyYAML==3.13
+Pillow==5.4.1
+ruamel.yaml==0.15.89

@@ -25,7 +25,7 @@ The main goal of this tool is to programmatically extract tiles data contained i
 ### Run the tests
 
 ```bash
-(venv) python -m unittest discover
+(venv) make test
 ```
 
 ## Configuration file reference

@@ -1,11 +1,11 @@
 import argparse
 import os
 from io import TextIOWrapper, BufferedReader
-from math import floor
 
 import ruamel.yaml
 from PIL import Image
 from PIL.Image import FLIP_LEFT_RIGHT, FLIP_TOP_BOTTOM
+from math import floor
 
 
 class Configuration:
